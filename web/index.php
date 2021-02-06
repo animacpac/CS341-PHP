@@ -1,39 +1,76 @@
-<?php include "sr1.php" ; ?>
 <?php include("header.php"); 
 session_start();
 ?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>DBA Access</title>
-    </head>
-    <body>
-        <h1> User information by last name</h1>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <button action="user-search.php" type="submit" name="MANAGE" class="btn btn-info">MANAGE USERS</button>
+</head>
+<body>
 
-    <form method="post" action="results.php">
-    <p>Choose Last Name</p>
-    <label>Users </label>
-    <select name='last_name_filter' id='last_name_filter' required>
-    <?php
-       $names_array = array();
-       
-       foreach ($db->query ('SELECT DISTINCT last_name FROM note') as $row )
-       {
-           //Add book to the book array if it has not been added 
-          if(!(in_array($row['last_name'], $names_array)))
-          {
-              array_push($names_array, $row['last_name']);
-          }
-       }
-       //loop the books_array variable to create an option for each book 
-       foreach ($names_array as $last_name_in_array )
-       {
-        echo '<option value="' . $last_name_in_array . '">' .  $last_name_in_array . '</option>';
-       }
-    ?>
-    </select>
-    <button type="submit">Submit Form</button>
-    <form> 
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <form action="manage_cart.php" method="POST">
+                    <div class="card">
+                        <img src="purse.jpg" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Purse</h5>
+                            <p class="card-text">Price: $20.00</p>
+                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
+                            <input type="hidden" name="Item_Name" value="Purse 1">
+                            <input type="hidden" name="Price" value="20.00">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">
+                <form action="manage_cart.php" method="POST">
+                    <div class="card">
+                        <img src="purse2.jpg" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Purse 2</h5>
+                            <p class="card-text">Price: $15.00</p>
+                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
+                            <input type="hidden" name="Item_Name" value="Purse2">
+                            <input type="hidden" name="Price" value="15.00">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">
+                <form action="manage_cart.php" method="POST">
+                    <div class="card">
+                        <img src="purse3.jpg" class="card-img-top">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Purse 3</h5>
+                            <p class="card-text">Price: $30.00</p>
+                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
+                            <input type="hidden" name="Item_Name" value="Purse3">
+                            <input type="hidden" name="Price" value="30.00">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3">
+                <form action="manage_cart.php" method="POST">
+                    <div class="card">
+                        <img src="purse4.jpg" class="card-img-top" alt="...">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Purse 4</h5>
+                            <p class="card-text">Price: $40.00</p>
+                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
+                            <input type="hidden" name="Item_Name" value="Purse4">
+                            <input type="hidden" name="Price" value="40.00">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
 </html>
