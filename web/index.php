@@ -16,17 +16,7 @@
     
     <select name='book_filter' id='book_filter' required>
     <?php
-       $dbUrl = getenv('DATABASE_URL');
-
-       $dbOpts = parse_url($dbUrl);
-     
-       $dbHost = $dbOpts["host"];
-       $dbPort = $dbOpts["port"];
-       $dbUser = $dbOpts["user"];
-       $dbPassword = $dbOpts["pass"];
-       $dbName = ltrim($dbOpts["path"],'/');
-     
-       $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+       
        if (isset($_POST["submit"])) {
          $str = $_POST["search"];
          $sth = $db->prepare("SELECT * FROM 'search' WHERE Name = '$str' ");
