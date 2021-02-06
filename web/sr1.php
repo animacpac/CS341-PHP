@@ -15,7 +15,7 @@ try
   $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
 
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $statement = $db->prepare('SELECT * FROM note');
+  $statement = $db->prepare('SELECT id, first_name, last_name, userid, content FROM note');
         $statement->execute();
 
         // Go through each result

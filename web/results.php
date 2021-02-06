@@ -5,17 +5,17 @@
 
         echo '<h1>These are your results in the database:</h1> <br><br>';
         
-        $book = $_POST['book_filter'];
+        $first_name = $_POST['first_name_filter'];
 
 
         //Prepared statement to get results filtered by book 
-        $stmt = $db->prepare('SELECT id, book, chapter, verse FROM scriptures WHERE book=:book');
-        $stmt->execute(array(':book' => $book));
+        $stmt = $db->prepare('SELECT * FROM note WHERE first_name=:first_name');
+        $stmt->execute(array(':first_name' => $first_name));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row )
         {
-         echo '<a href=scripture_details.php?id=' . $row['id'] . '>' . $row['book'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a>';
+         echo '<a href=scripture_details.php?id=' . $row['id'] . '>' . $row['first_name'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a>';
          echo '<br><br>';
         }
  ?>
