@@ -9,11 +9,11 @@ session_start();
         <title>DBA Access</title>
     </head>
     <body>
-        <h1> User information by name</h1>
+        <h1> User information by last name</h1>
     </body>
 
     <form method="post" action="results.php">
-    <p>Choose the user</p>
+    <p>Choose Last Name</p>
     <label>Users </label>
     <select name='last_name_filter' id='last_name_filter' required>
     <?php
