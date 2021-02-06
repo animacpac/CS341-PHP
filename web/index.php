@@ -1,4 +1,4 @@
-<?php include "sr1.php" ; ?>
+
 
 <!DOCTYPE html>
 <html>
