@@ -9,7 +9,7 @@
         <h1>This Page is where we manage all the inputs and new items</h1>
     </body>
 
-    <form method="post">
+    <!-- <form method="post">
      <label>Search</label>
      <input type="text" name="search">
      <input type="submit" name="submit">
@@ -42,5 +42,5 @@
     ?>
     </select>
     <button type="submit">Submit Form</button>
-    </form> 
+    </form>  -->
 </html>
