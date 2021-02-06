@@ -1,4 +1,7 @@
 <?php include "sr1.php" ; ?>
+<?php include("header.php"); 
+session_start();
+?>
 
 <?php
     //Check if the page has been called adter a post method
