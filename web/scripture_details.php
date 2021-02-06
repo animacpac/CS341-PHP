@@ -23,16 +23,16 @@
  ?>
  <table>
     <tr>
-        <th>First Name  </th>
-        <th>Last Name  </th>
-        <th>User ID  </th>
-        <th>Address  </th>
+        <th>First Name  </th><br>
+        <th>Last Name  </th><br>
+        <th>User ID  </th><br>
+        <th>Address  </th><br>
     </tr>
     <tr>
-        <td><?php echo $row['first_name']; ?></td>
-        <td><?php echo $row['last_name']; ?></td>
-        <td><?php echo $row['userid']; ?></td>
-        <td><?php echo $row['content']; ?></td>
+        <td><?php echo $row['first_name']; ?></td><br>
+        <td><?php echo $row['last_name']; ?></td><br>
+        <td><?php echo $row['userid']; ?></td><br>
+        <td><?php echo $row['content']; ?></td><br>
     </tr>
 
  </table>
