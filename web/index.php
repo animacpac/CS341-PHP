@@ -13,7 +13,7 @@
      <label>Search</label>
      <input type="text" name="search">
      <input type="submit" name="submit">
-
+    
     <select name='book_filter' id='book_filter' required>
     <?php
        $dbUrl = getenv('DATABASE_URL');
@@ -51,5 +51,5 @@
     ?>
     </select>
     <button type="submit">Submit Form</button>
-    <form> 
+    </form> 
 </html>
