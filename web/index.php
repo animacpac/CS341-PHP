@@ -7,7 +7,9 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <button action="user_search.php" type="submit" name="MANAGE" class="btn btn-info">MANAGE USERS</button>
+    <form action="user_detail.php">
+    <button type="submit" name="MANAGE" class="btn btn-info">MANAGE USERS</button>
+    </form>
 </head>
 <body>
 
