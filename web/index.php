@@ -6,15 +6,15 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Scriptures</title>
+        <title>DBA Access</title>
     </head>
     <body>
         <h1> User information by name</h1>
     </body>
 
     <form method="post" action="results.php">
-    <p>Search by:</p>
-    <label>names</label>
+    <p>Choose the user</p>
+    <label>Users </label>
     <select name='first_name_filter' id='first_name_filter' required>
     <?php
        $names_array = array();
