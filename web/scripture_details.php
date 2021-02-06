@@ -14,12 +14,12 @@
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row )
-        {
+        // {
                     
-         echo '<b>' . $row['first_name'] . ' ' . $row['last_name'] . ':' . $row['userid'] . '</b>';
-         echo ' - "' . $row['content'] . '"'; 
-         echo '<br><br>';
-        }
+        //  echo '<b>' . $row['first_name'] . ' ' . $row['last_name'] . ':' . $row['userid'] . '</b>';
+        //  echo ' - "' . $row['content'] . '"'; 
+        //  echo '<br><br>';
+        // }
  ?>
  <table>
     <tr>
