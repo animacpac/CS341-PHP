@@ -18,12 +18,17 @@ session_start();
         foreach ($rows as $row )
      
  ?>
+ <style>
+ table, th, td {
+  border: 1px solid black;
+}
+</style>
  <table>
     <tr>
-        <th>First Name  |</th>
-        <th>Last Name  |</th>
-        <th>User ID  |</th>
-        <th>Address  |</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User ID</th>
+        <th>Address</th>
     </tr>
     <tr>
         <td><?php echo $row['first_name']; ?></td>
