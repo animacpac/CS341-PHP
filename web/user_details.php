@@ -27,16 +27,16 @@ session_start();
  ?>
  <table>
     <tr>
-        <th>First Name  </th><br>
-        <th>Last Name  </th><br>
-        <th>User ID  </th><br>
-        <th>Address  </th><br>
+        <th>First Name  |</th><br>
+        <th>Last Name  |</th><br>
+        <th>User ID  |</th><br>
+        <th>Address  |</th><br>
     </tr>
     <tr>
-        <td><?php echo $row['first_name']; ?></td><br>
-        <td><?php echo $row['last_name']; ?></td><br>
-        <td><?php echo $row['userid']; ?></td><br>
-        <td><?php echo $row['content']; ?></td><br>
+        <td><?php echo $row['first_name']; ?></td>
+        <td><?php echo $row['last_name']; ?></td>
+        <td><?php echo $row['userid']; ?></td>
+        <td><?php echo $row['content']; ?></td>
     </tr>
 
  </table>
