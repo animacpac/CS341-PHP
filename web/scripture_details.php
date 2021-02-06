@@ -35,5 +35,7 @@
         <td><?php echo $row->content; ?></td>
     </tr>
 
+ </table>
+
  
  </html>
