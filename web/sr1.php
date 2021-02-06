@@ -34,4 +34,4 @@ catch (PDOException $ex)
   die();
 }
 
- </html>
+?>

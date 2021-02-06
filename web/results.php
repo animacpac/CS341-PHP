@@ -15,7 +15,7 @@
 
         foreach ($rows as $row )
         {
-         echo '<a href=user.php?id=' . $row['id'] . '>' . $row['first_name'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a>';
+         echo '<a href=scripture_details.php?id=' . $row['id'] . '>' . $row['first_name'] . ' ' . $row['chapter'] . ':' . $row['verse'] . '</a>';
          echo '<br><br>';
         }
  ?>
