@@ -1,4 +1,7 @@
 <?php include "sr1.php" ; ?>
+<?php include("header.php"); 
+session_start();
+?>
 
 <!DOCTYPE html>
 <html>

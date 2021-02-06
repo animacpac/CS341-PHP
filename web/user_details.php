@@ -1,6 +1,7 @@
 <?php include "sr1.php" ; ?>
 <!DOCTYPE html>
 <html>
+
 <?php
     //Check if the page has been called adter a post method
 
