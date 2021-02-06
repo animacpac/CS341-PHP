@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <?php
 
 try
@@ -25,12 +27,26 @@ try
         }
 }
 
+
 catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
-
-
-
 ?>
+<table>
+    <tr>
+        <th>First Name  </th><br>
+        <th>Last Name  </th><br>
+        <th>User ID  </th><br>
+        <th>Address  </th><br>
+    </tr>
+    <tr>
+        <td><?php echo $row['first_name']; ?></td><br>
+        <td><?php echo $row['last_name']; ?></td><br>
+        <td><?php echo $row['userid']; ?></td><br>
+        <td><?php echo $row['content']; ?></td><br>
+    </tr>
+
+ </table>
+ </html>
