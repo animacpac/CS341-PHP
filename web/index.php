@@ -6,7 +6,7 @@
         <title>Scriptures</title>
     </head>
     <body>
-        <h1>Scripture Resources by Book</h1>
+        <h1> User information by name</h1>
     </body>
 
     <form method="post" action="results.php">
