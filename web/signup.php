@@ -1,140 +1,87 @@
-<?php
-// Include config file
-require_once "sr1.php";
- 
-// Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    // Validate username
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+<?php session_start(); ?>
 
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Validate password
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
-    } else{
-        $password = trim($_POST["password"]);
-    }
-    
-    // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
-    } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($password_err) && ($password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
-        }
-    }
-    
-    // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-         
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
-            // Set parameters
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: login.php");
-            } else{
-                echo "Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
-    }
-    
-    // Close connection
-    mysqli_close($link);
-}
-?>
-    
- 
-    
 <!DOCTYPE html>
-<html lang="en"> 
-  
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-</head>
-    
-<body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>    
-</body>
-</html>  
- 
+<html lan="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  </head>
+  <body>
+    <?php
+      if (isset($_POST['submit'])) {
+        include("config.php");
+
+        function debug($message) {
+          echo '<script type="text/javascript">console.log("' . $message . '")</script>';
+        }
+
+        function isUsernameValid($db, $username) {
+          $query = $db->prepare("SELECT 1 FROM users WHERE username = :username");
+          $query->bindParam(':username', $username);
+          $query->execute();
+          $result = $query->fetch(PDO::FETCH_OBJ);
+
+          return $result === false; // if now row exists, then this is good to go
+        }
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        debug(isUsernameValid($db, $username) ? "valid" : "not");
+
+        if (isUsernameValid($db, $username)) {
+          $query = $db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
+          $query->bindParam(':username', $username);
+          $query->bindParam(':password', $password);
+          $query->execute();
+
+          // hack to log the new user in: render a hidden form with new values and submit it
+          $html = array(
+            '<form id="post_back_to_login" action="/login_page.php" method="post" style="display: none;">',
+              '<input type="text" name="username" value="' . $username . '">',
+              '<input type="password" name="password" value="' . $password . '">',
+              '<input type="text" name="submit" value="submit">',
+            '</form>',
+
+            '<script type="text/javascript">',
+              'HTMLFormElement.prototype.submit.call(document.getElementById("post_back_to_login"));',
+            '</script>'
+          );
+
+          echo join("", $html);
+        }
+        else {
+          $usernameError = "'$username' is already taken";
+        }
+      }
+    ?>
+
+    <h1>Saved Pages</h1>
+
+    <?php
+      if (isset($usernameError)) {
+        echo '<div style="color: #f44336;">';
+        echo   $usernameError;
+        echo '</div>';
+      }
+    ?>
+
+    <form action="/new_user.php" method="post">
+      <div class="container">
+        <label><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <em>(This should match your Reddit username!)</em>
+
+        <br />
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <br />
+        <input type="submit" name="submit" value="submit">
+
+        <br />
+        <br />
+        <a href="/login_page.php">Already have an account? Sign in!</a>
+      </div>
+    </form>
+  </body>
+</html>

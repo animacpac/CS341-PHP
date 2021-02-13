@@ -1,87 +1,74 @@
-<?php session_start(); ?>
 
-<!DOCTYPE html>
-<html lan="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-  </head>
-  <body>
-    <?php
-      if (isset($_POST['submit'])) {
-        include("sr1.php");
+<?php 
 
-        function debug($message) {
-          echo '<script type="text/javascript">console.log("' . $message . '")</script>';
-        }
+try
+{
+  $dbUrl = getenv('DATABASE_URL');
 
-        function isUsernameValid($db, $username) {
-          $query = $db->prepare("SELECT 1 FROM users WHERE username = :username");
-          $query->bindParam(':username', $username);
-          $query->execute();
-          $result = $query->fetch(PDO::FETCH_OBJ);
+  $dbOpts = parse_url($dbUrl);
 
-          return $result === false; // if now row exists, then this is good to go
-        }
+  $dbHost = $dbOpts["host"];
+  $dbPort = $dbOpts["port"];
+  $dbUser = $dbOpts["user"];
+  $dbPassword = $dbOpts["pass"];
+  $dbName = ltrim($dbOpts["path"],'/');
 
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+    
+$showAlert = false;  
+$showError = false;  
+$exists=false; 
+    
+if($_SERVER["REQUEST_METHOD"] == "POST") { 
+      
+    // Include file which makes the 
+    // Database Connection. 
+    include 'sr1.php';    
+    
+    $username = $_POST["username"];  
+    $password = $_POST["password"];  
+    $cpassword = $_POST["cpassword"]; 
+            
 
-        debug(isUsernameValid($db, $username) ? "valid" : "not");
+    require ("sr1.php")
+    $db = get_db();
+    try{
+    $query = 'INSERT INTO users(username, password, cpassword) VALUES(:username, :password, :cpassword)';
+    
+    $statement = $db->prepare($query);
+    
+    $statement->bindValue(':username', $username);
+	$statement->bindValue(':password', $password);
+    $statement->bindValue(':cpassword', $cpassword);
+    $statement->execute();
 
-        if (isUsernameValid($db, $username)) {
-          $query = $db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-          $query->bindParam(':username', $username);
-          $query->bindParam(':password', $password);
-          $query->execute();
-
-          // hack to log the new user in: render a hidden form with new values and submit it
-          $html = array(
-            '<form id="post_back_to_login" action="/login_page.php" method="post" style="display: none;">',
-              '<input type="text" name="username" value="' . $username . '">',
-              '<input type="password" name="password" value="' . $password . '">',
-              '<input type="text" name="submit" value="submit">',
-            '</form>',
-
-            '<script type="text/javascript">',
-              'HTMLFormElement.prototype.submit.call(document.getElementById("post_back_to_login"));',
-            '</script>'
-          );
-
-          echo join("", $html);
-        }
-        else {
-          $usernameError = "'$username' is already taken";
-        }
-      }
-    ?>
-
-    <h1>Saved Pages</h1>
-
-    <?php
-      if (isset($usernameError)) {
-        echo '<div style="color: #f44336;">';
-        echo   $usernameError;
-        echo '</div>';
-      }
-    ?>
-
-    <form action="/new_user.php" method="post">
-      <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-        <em>(This should match your Reddit username!)</em>
-
-        <br />
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-
-        <br />
-        <input type="submit" name="submit" value="submit">
-
-        <br />
-        <br />
-        <a href="/login_page.php">Already have an account? Sign in!</a>
-      </div>
-    </form>
-  </body>
-</html>
+//     if($num == 0) { 
+//         if(($password == $cpassword) && $exists==false) { 
+    
+//             $hash = password_hash($password,  
+//                                 PASSWORD_DEFAULT); 
+                
+//             // Password Hashing is used here.  
+//             $sql = "INSERT INTO `users` ( `username`,  
+//                 `password`) VALUES ('$username',  
+//                 '$hash', current_timestamp())"; 
+    
+//             $result = mysqli_query($conn, $sql); 
+    
+//             if ($result) { 
+//                 $showAlert = true;  
+//             } 
+//         }  
+//         else {  
+//             $showError = "Passwords do not match";  
+//         }       
+//     }// end if  
+    
+//    if($num>0)  
+//    { 
+//       $exists="Username not available";  
+//    }  
+    
+}//end if    
+} 
+?>
