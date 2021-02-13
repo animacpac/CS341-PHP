@@ -27,19 +27,19 @@ try
 
 	// 	$statement->execute();
 	// }
-//   $s = " select * from note_user where name = '$name'";
+  $s = " select * from note_user where name = '$name'";
 
-//   $result = mysqli_query($con)
+  $result = mysqli_query($con)
   
-//   $num = mysqli_stmt_num_rows($result);
+  $num = mysqli_stmt_num_rows($result);
 
-//   if($num == 1){
-//       echo "Username Already Taken";
-//   }
-//   else{
-//       $reg= "insert into note_user(username, password) values ('$name' , '$pass')";
-//       mysqli_query($con, $reg);
-//       echo" Registration Successful";
+  if($num == 1){
+      echo "Username Already Taken";
+  }
+  else{
+      $reg= "insert into note_user(username, password) values ('$name' , '$pass')";
+      mysqli_query($con, $reg);
+      echo" Registration Successful";
 //   }
 
 
