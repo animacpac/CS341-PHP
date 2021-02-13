@@ -1,87 +1,44 @@
-<?php session_start(); ?>
 
 <!DOCTYPE html>
-<html lan="en">
-  <head>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
-  </head>
-  <body>
-    <?php
-      if (isset($_POST['submit'])) {
-        include("config.php");
-
-        function debug($message) {
-          echo '<script type="text/javascript">console.log("' . $message . '")</script>';
-        }
-
-        function isUsernameValid($db, $username) {
-          $query = $db->prepare("SELECT 1 FROM users WHERE username = :username");
-          $query->bindParam(':username', $username);
-          $query->execute();
-          $result = $query->fetch(PDO::FETCH_OBJ);
-
-          return $result === false; // if now row exists, then this is good to go
-        }
-
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        debug(isUsernameValid($db, $username) ? "valid" : "not");
-
-        if (isUsernameValid($db, $username)) {
-          $query = $db->prepare("INSERT INTO users (username, password) VALUES (:username, :password)");
-          $query->bindParam(':username', $username);
-          $query->bindParam(':password', $password);
-          $query->execute();
-
-          // hack to log the new user in: render a hidden form with new values and submit it
-          $html = array(
-            '<form id="post_back_to_login" action="/login_page.php" method="post" style="display: none;">',
-              '<input type="text" name="username" value="' . $username . '">',
-              '<input type="password" name="password" value="' . $password . '">',
-              '<input type="text" name="submit" value="submit">',
-            '</form>',
-
-            '<script type="text/javascript">',
-              'HTMLFormElement.prototype.submit.call(document.getElementById("post_back_to_login"));',
-            '</script>'
-          );
-
-          echo join("", $html);
-        }
-        else {
-          $usernameError = "'$username' is already taken";
-        }
-      }
-    ?>
-
-    <h1>Saved Pages</h1>
-
-    <?php
-      if (isset($usernameError)) {
-        echo '<div style="color: #f44336;">';
-        echo   $usernameError;
-        echo '</div>';
-      }
-    ?>
-
-    <form action="/new_user.php" method="post">
-      <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-        <em>(This should match your Reddit username!)</em>
-
-        <br />
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-
-        <br />
-        <input type="submit" name="submit" value="submit">
-
-        <br />
-        <br />
-        <a href="/login_page.php">Already have an account? Sign in!</a>
-      </div>
-    </form>
-  </body>
-</html>
+<html lang="en"> 
+  
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
+</head>
+    
+<body>
+    <div class="wrapper">
+        <h2>Sign Up</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="createAccount.php" method="POST">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
+            <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        </form>
+    </div>    
+</body>
+</html>  
+ 
