@@ -71,7 +71,7 @@ if ($badLogin)
 }
 ?>
 
-<h1>Please sign in below:</h1>
+<!-- <h1>Please sign in below:</h1>
 
 <form id="mainForm" action="signIn.php" method="POST">
 
@@ -93,9 +93,31 @@ if ($badLogin)
 
 </form>
 
-<br /><br />
+<br /><br /> -->
 
-Or <a href="signUp.php">Sign up</a> for a new account.
+
+
+<div class="wrapper">
+        <h2>Please Login</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="signIn.php" method="POST">
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" id="txtUser" name="txtUser" class="form-control" placeholder="Username" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Sign In">
+                
+            </div>
+            <p>Already have an account? <a href="signIn.php">Login here</a>.</p>
+        </form>
+    </div>    
 
 </div>
 
