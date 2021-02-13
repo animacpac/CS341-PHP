@@ -90,15 +90,21 @@ if ($badLogin)
 
 <form id="mainForm" action="signIn.php" method="POST">
 
-	<input type="text" id="txtUser" name="txtUser" placeholder="Username">
-	<label for="txtUser">Username</label>
-	<br /><br />
-
-	<input type="password" id="txtPassword" name="txtPassword" placeholder="Password">
-	<label for="txtPassword">Password</label>
-	<br /><br />
-
-	<input type="submit" value="Sign In" />
+			<div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" id="txtUser" name="txtUser" class="form-control" placeholder="Username" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>    
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+			<div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Sign In">
+            </div>
+            <p>Don't Have an Account <a href="signUp.php">Sign Up here</a>.</p>
+	
 
 </form>
 
