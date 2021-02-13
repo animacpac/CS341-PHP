@@ -1,6 +1,22 @@
 <?php include("header.php"); 
 session_start();
 ?>
+<?php
+/**********************************************************
+* File: topicEntry.php
+* Author: Br. Burton
+* 
+* Description: This is the PHP file that the user starts with.
+*   It has a form to enter a new scripture and topic.
+*   It posts to the insertTopic.php page.
+***********************************************************/
+
+// The DB connection logic is in another file so it can be included
+// in each of our different PHP files.
+require("sr1.php");
+$db = get_db();
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

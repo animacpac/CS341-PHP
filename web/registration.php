@@ -1,41 +1,46 @@
-<!DOCTYPE html>
-<html>
 <?php
-
+$username = $_POST['username'];
+$password = $_POST['password'];
+require("sr1.php");
+$db = get_db();
 try
 {
-  $dbUrl = getenv('DATABASE_URL');
+    $query = 'INSERT INTO note_user(username, password) VALUES(:username, :password)';
 
-  $dbOpts = parse_url($dbUrl);
+    $statement->bindValue(':username', $username);
+	$statement->bindValue(':password', $password);
+    $statement->execute();
 
-  $dbHost = $dbOpts["host"];
-  $dbPort = $dbOpts["port"];
-  $dbUser = $dbOpts["user"];
-  $dbPassword = $dbOpts["pass"];
-  $dbName = ltrim($dbOpts["path"],'/');
+    $id = $db->lastInsertId("id");
 
-  $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+	// Now go through each topic id in the list from the user's checkboxes
+	// foreach ($topicIds as $topicId)
+	// {
+	// 	echo "ScriptureId: $scriptureId, topicId: $topicId";
 
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  $mysqli_select_db($con, 'note_user');
+	// 	// Again, first prepare the statement
+	// 	$statement = $db->prepare('INSERT INTO scripture_topic(scriptureId, topicId) VALUES(:scriptureId, :topicId)');
 
-  $name = $_POST['username'];
-  $pass = $_POST['password'];
+	// 	// Then, bind the values
+	// 	$statement->bindValue(':scriptureId', $scriptureId);
+	// 	$statement->bindValue(':topicId', $topicId);
 
-  $s = " select * from note_user where name = '$name'";
+	// 	$statement->execute();
+	// }
+//   $s = " select * from note_user where name = '$name'";
 
-  $result = mysqli_query($con)
+//   $result = mysqli_query($con)
   
-  $num = mysqli_stmt_num_rows($result);
+//   $num = mysqli_stmt_num_rows($result);
 
-  if($num == 1){
-      echo "Username Already Taken";
-  }
-  else{
-      $reg= "insert into note_user(username, password) values ('$name' , '$pass')";
-      mysqli_query($con, $reg);
-      echo" Registration Successful";
-  }
+//   if($num == 1){
+//       echo "Username Already Taken";
+//   }
+//   else{
+//       $reg= "insert into note_user(username, password) values ('$name' , '$pass')";
+//       mysqli_query($con, $reg);
+//       echo" Registration Successful";
+//   }
 
 
 }
