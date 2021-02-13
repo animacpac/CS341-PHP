@@ -40,7 +40,7 @@ try
       $reg= "insert into note_user(username, password) values ('$name' , '$pass')";
       mysqli_query($con, $reg);
       echo" Registration Successful";
-//   }
+      }
 
 
 }
