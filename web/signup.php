@@ -9,7 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       
     // Include file which makes the 
     // Database Connection. 
-    include 'sr1.php';    
+    require 'sr1.php';    
     
     $username = $_POST["username"];  
     $password = $_POST["password"];  
