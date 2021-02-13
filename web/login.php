@@ -32,7 +32,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+    header("location: header.php");
     exit;
 }
 ?>
@@ -334,14 +334,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </p>
 </body>
 </html>
-If data comes from external sources like form filled in by anonymous users, there is a risk that it may contain malicious script indented to launch cross-site scripting (XSS) attacks. Therefore, you must escape this data using the PHP htmlspecialchars() function before displaying it in the browser, so that any HTML tag it contains becomes harmless.
-
-For example, after escaping special characters the string <script>alert("XSS")</script> becomes &lt;script&gt;alert("XSS")&lt;/script&gt; which is not executed by the browser.
-
-Step 3: Creating the Logout Script
-Now, let's create a "logout.php" file. When the user clicks on the log out or sign out link, the script inside this file destroys the session and redirect the user back to the login page.
-
-ExampleDownload
 <?php
 // Initialize the session
 session_start();
@@ -356,12 +348,6 @@ session_destroy();
 header("location: login.php");
 exit;
 ?>
-Adding the Password Reset Feature
-Finally, in this section we will add the password reset utility to our login system. Using this feature logged in users can instantly reset their own password for their accounts.
-
-Let's create a file named "reset-password.php" and place the following code inside it.
-
-ExampleProcedural Object Oriented PDODownload
 <?php
 // Initialize the session
 session_start();
