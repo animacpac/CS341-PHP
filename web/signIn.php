@@ -119,7 +119,7 @@ if ($badLogin)
                 <input type="submit" class="btn btn-primary" value="Sign In">
                 
             </div>
-            <p>Already have an account? <a href="signUp.php">Login here</a>.</p>
+            <p>Already have an account? <a href="signup.php">Login here</a>.</p>
         </form>
     </div>    
 
