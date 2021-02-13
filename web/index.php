@@ -8,7 +8,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <form action="signup.php">
-    <button type="submit" name="Sign Up" class="btn btn-info">Sigh Up</button>
+    <button type="submit" name="SignUp" class="btn btn-info">Sigh Up</button>
+    </form>
+    <form action="Login.php">
+    <button type="submit" name="Login" class="btn btn-info">Login</button>
     </form>
 </head>
 <body>
