@@ -10,9 +10,9 @@ session_start();
     <form action="signup.php">
     <button type="submit" name="SignUp" class="btn btn-info">Sigh Up</button>
     </form>
-    <form action="Login.php">
+    <!-- <form action="login.php">
     <button type="submit" name="Login" class="btn btn-info">Login</button>
-    </form>
+    </form> -->
 </head>
 <body>
 
