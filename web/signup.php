@@ -1,6 +1,7 @@
-<?php include "sr1.php" ; ?>
 <?php include("header.php"); 
-session_start();
+session_start();?>
+<?php require_once "sr1.php" ;
+
 
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
