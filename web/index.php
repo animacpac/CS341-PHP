@@ -1,21 +1,8 @@
-<!-- <?php
+
+
 <?php include("header.php"); 
 session_start();
-
-if (isset($_SESSION['username']))
-{
-	$username = $_SESSION['username'];
-}
-else
-{
-	header("Location: signIn.php");
-	die(); // we always include a die after redirects.
-}
-
-// ?> -->
-// <?php include("header.php"); 
-// session_start();
-// ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
