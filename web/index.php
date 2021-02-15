@@ -1,5 +1,5 @@
 <!-- <?php
-
+<?php include("header.php"); 
 session_start();
 
 if (isset($_SESSION['username']))
@@ -12,10 +12,10 @@ else
 	die(); // we always include a die after redirects.
 }
 
-?> -->
-<?php include("header.php"); 
-session_start();
-?>
+// ?> -->
+// <?php include("header.php"); 
+// session_start();
+// ?>
 
 <!DOCTYPE html>
 <html lang="en">
