@@ -1,6 +1,22 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+}
+else
+{
+	header("Location: signIn.php");
+	die(); // we always include a die after redirects.
+}
+
+?>
 <?php include("header.php"); 
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +29,8 @@ session_start();
     <!-- <form action="login.php">
     <button type="submit" name="Login" class="btn btn-info">Login</button>
     </form> -->
+    welcome <?= $username ?><br /><br />
+    <a href="signOut.php">Sign Out</a>
 </head>
 <body>
 
