@@ -20,7 +20,11 @@ session_start();
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                        <a class="nav-link active" aria-current="page" href="singIn.php">Sign In</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="signIn.php">Sign In</a>
                     </li>
                 </ul>
                 <div>                   
