@@ -6,7 +6,7 @@ session_start();
 
 $badLogin = false;
 
-/
+
 if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 {
 	// they have submitted a username and password for us to check
