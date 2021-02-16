@@ -17,7 +17,7 @@ if (isset($_SESSION['username']))
 }
 else
 {
-	header("Location: signIn.php");
+	header("Location: index.php");
 	die(); // we always include a die after redirects.
 }
 
