@@ -40,6 +40,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 		else
 		{
 			$badLogin = true;
+			echo badLogin...
 		}
 
 	}
