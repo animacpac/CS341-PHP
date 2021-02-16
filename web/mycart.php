@@ -10,7 +10,7 @@ session_start();
     <title>Cart</title>
 </head>
 <body>
-
+<link rel="stylesheet" type="text/css" href="insert.css">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center border rounded bg-light my-5">
@@ -63,7 +63,6 @@ session_start();
             </div>
             <div class="row">
   <div class="col-75">
-  <link rel="stylesheet" type="text/css" href="insert.css">
     <div class="container">
       <form action="/action_page.php">
 
