@@ -20,22 +20,18 @@ $username = htmlspecialchars($username);
 // Get the hashed password.
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 $streetname = htmlspecialchars($streetname);
-$cityname = htmlspecialchars($cityname);
-$zipcode = htmlspecialchars($zipcode);
-$statename = htmlspecialchars($statename);
+
 // Connect to the database
 require("dbConnect.php");
 $db = get_db();
 
-$query = 'INSERT INTO users(username, password, streetname, cityname, zipcode, statename) 
-       VALUES(:username, :password, :streetname, :cityname, :zipcode, :statename)';
+$query = 'INSERT INTO users(username, password, streetname) 
+       VALUES(:username, :password, :streetname)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 $statement->bindValue(':password', $hashedPassword);
 $statement->bindValue(':streetname', $streetname);
-$statement->bindValue(':cityname', $cityname);
-$statement->bindValue(':zipcode', $zipcode);
-$statement->bindValue(':statename', $statename);
+
 
 
 $statement->execute();
