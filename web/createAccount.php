@@ -31,7 +31,7 @@ $statement->bindValue(':password', $hashedPassword);
 $statement->bindValue(':streetname', $username);
 $statement->bindValue(':cityname', $cityname);
 $statement->bindValue(':zipcode', $zipcode);
-$statement->bindValue(':zipcode', $statename);
+$statement->bindValue(':statename', $statename);
 
 
 $statement->execute();
