@@ -28,6 +28,7 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 	{
 		$row = $statement->fetch();
 		$hashedPasswordFromDB = $row['password'];
+		
 
 		// now check to see if the hashed password matches
 		if (password_verify($password, $hashedPasswordFromDB))
@@ -37,12 +38,10 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 			header("Location: home.php");
 			
 			die(); // we always include a die after redirects.
-			echo "It logeed in"
 		}
 		else
 		{
 			$badLogin = true;
-			echo "Bad login";
 		}
 
 	}
