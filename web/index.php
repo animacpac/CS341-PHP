@@ -1,5 +1,5 @@
 
-  
+<!--   
 <?php
 /**********************************************************
 * File: home.php
@@ -21,7 +21,7 @@ else
 	die(); // we always include a die after redirects.
 }
 
-?>
+?> -->
 
 <?php include("header.php"); 
 session_start();
