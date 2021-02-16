@@ -44,6 +44,11 @@
                 <input type="text" id="txtCity" name="txtCity" placeholder="City" class="form-control" value="<?php echo $cityname; ?>">
                 <span class="help-block"><?php echo $cityname_err; ?></span>
             </div>
+            <div class="form-group <?php echo (!empty($statename_err)) ? 'has-error' : ''; ?>">
+                <label>State</label>
+                <input type="text" id="txtState" name="txtState" placeholder="State" class="form-control" value="<?php echo $statename; ?>">
+                <span class="help-block"><?php echo $statename_err; ?></span>
+            </div>
             <div class="form-group <?php echo (!empty($zipcode_err)) ? 'has-error' : ''; ?>">
                 <label>Zipcode</label>
                 <input type="number" min="10000" max="99999" name="txtZip" placeholder="Zipcode" class="form-control" value="<?php echo $zipcode; ?>">
