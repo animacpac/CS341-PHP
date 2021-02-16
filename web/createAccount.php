@@ -28,10 +28,7 @@ $query = 'INSERT INTO users(username, password, streetname, cityname, zipcode, s
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
 $statement->bindValue(':password', $hashedPassword);
-$statement->bindValue(':streetname', $streetname);
-$statement->bindValue(':cityname', $cityname);
-$statement->bindValue(':zipcode', $zipcode);
-$statement->bindValue(':statename', $statename);
+
 
 
 $statement->execute();
