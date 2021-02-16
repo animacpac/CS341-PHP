@@ -2,10 +2,7 @@
 
 $username = $_POST['txtUser'];
 $password = $_POST['txtPassword'];
-$streetname = $_POST['txtStreet'];
-$cityname = $_POST['txtCity']
-$zipcode = $_POST['txtZip']
-$statename = $_POST['txtState']
+
 if (!isset($username) || $username == ""
 	|| !isset($password) || $password == "")
 {
@@ -19,20 +16,19 @@ $username = htmlspecialchars($username);
 
 // Get the hashed password.
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-$streetname = htmlspecialchars($streetname);
 
 // Connect to the database
 require("dbConnect.php");
 $db = get_db();
 
-$query = 'INSERT INTO users(username, password, streetname) 
-       VALUES(:username, :password, :streetname)';
+$query = 'INSERT INTO users(username, password) VALUES(:username, :password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':username', $username);
+
+// **********************************************
+// NOTICE: We are submitting the hashed password!
+// **********************************************
 $statement->bindValue(':password', $hashedPassword);
-$statement->bindValue(':streetname', $streetname);
-
-
 
 $statement->execute();
 
