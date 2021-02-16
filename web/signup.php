@@ -46,7 +46,7 @@
             </div>
             <div class="form-group <?php echo (!empty($zipcode_err)) ? 'has-error' : ''; ?>">
                 <label>Zipcode</label>
-                <input type="number" min="10000" max="99999"> name="txtZip" placeholder="Zipcode" class="form-control" value="<?php echo $zipcode; ?>">
+                <input type="number" min="10000" max="99999" name="txtZip" placeholder="Zipcode" class="form-control" value="<?php echo $zipcode; ?>">
                 <span class="help-block"><?php echo $zipcode_err; ?></span>
             </div>
             <div class="form-group">
