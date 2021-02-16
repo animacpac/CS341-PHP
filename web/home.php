@@ -9,14 +9,15 @@
 ***********************************************************/
 session_start();
 
-
+if (isset($_SESSION['username']))
+{
 	$username = $_SESSION['username'];
-
-// else
-// {
-// 	header("Location: signIn.php");
-// 	die(); // we always include a die after redirects.
-// }
+}
+else
+{
+	header("Location: signIn.php");
+	die(); // we always include a die after redirects.
+}
 
 ?>
 
