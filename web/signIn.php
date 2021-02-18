@@ -4,6 +4,9 @@
 
 session_start();
 
+$badLogin = false;
+
+
 if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 {
 	
@@ -34,10 +37,16 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 			
 			die(); 
 		}
-	
+		else
+		{
+			$badLogin = true;
+		}
 
 	}
-
+	else
+	{
+		$badLogin = true;
+	}
 }
 
 
