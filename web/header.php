@@ -1,7 +1,7 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
-
+$fname = $_SESSION['fname'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@ $username = $_SESSION['username'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
-Wecolme <?php echo $fname ?>
+Wecolme <?= $fname ?><br /><br />
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Pizza FHE</a>
