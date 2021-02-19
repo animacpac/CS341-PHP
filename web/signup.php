@@ -36,6 +36,9 @@
             <div class="form-group <?php echo (!empty($fname_err)) ? 'has-error' : ''; ?>">
                 <label>First Name</label>
                 <input type="text" id="txtFname" name="txtFname" class="form-control" placeholder="First Name" value="<?php echo $fname; ?>">
+            <div class="form-group <?php echo (!empty($lname_err)) ? 'has-error' : ''; ?>">
+                <label>First Name</label>
+            <input type="text" id="txtLname" name="txtLname" class="form-control" placeholder="Last Name" value="<?php echo $lname; ?>">
                
             </div>
             <div class="form-group">
