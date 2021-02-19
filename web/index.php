@@ -27,10 +27,11 @@ $username = $_SESSION['username'];
         </div>
 
         <div class="col-6 col-s-9">
-            <h1 id="color1">VALTER BARRETO</h1>
-            <p id="color2">“The family is the most important organization in time or in eternity. Our purpose in life is to create for ourselves eternal family units.”</p>
+            <h1 id="color1">YOUR PIZZA YOUR WAY</h1>
+
+            <p id="color2">“We Are committed in serving the best food with the most fresh Ingredients”</p>
             <div class="container1">
-                <img src="fam.png" alt="Powerful image" class="image">
+                <img src="pizza.png" alt="Powerful image" class="image">
                 <div class="overlay">
                     <div class="text">
                         Hello I love my family and as you see I am displaying them for you.
