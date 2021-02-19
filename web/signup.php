@@ -37,17 +37,21 @@
                 <label>First Name</label>
                 <input type="text" id="txtFname" name="txtFname" class="form-control" placeholder="First Name" value="<?php echo $fname; ?>">
             <div class="form-group <?php echo (!empty($lname_err)) ? 'has-error' : ''; ?>">
-                <label>First Name</label>
+                <label>Last Name</label>
             <input type="text" id="txtLname" name="txtLname" class="form-control" placeholder="Last Name" value="<?php echo $lname; ?>">
             </div>
              <p>Address</p>
             <div class="form-group <?php echo (!empty($street_name_err)) ? 'has-error' : ''; ?>">
                 <label>Street Name</label>
                 <input type="text" id="txtStreet" name="txtStreet" class="form-control" placeholder="Street Name" value="<?php echo $Street_name; ?>">
+            </div>
             <div class="form-group <?php echo (!empty($city_name_err)) ? 'has-error' : ''; ?>">
                 <label>City</label>
             <input type="text" id="txtCity" name="txtCity" class="form-control" placeholder="City Name" value="<?php echo $city_name; ?>">
-               
+            </div>
+            <div class="form-group <?php echo (!empty($zipcode_err)) ? 'has-error' : ''; ?>">
+                <label>Zipcode</label>
+            <input type="number" maxlength="5" minlength="5"  id="txtZip" name="txtZip" class="form-control" placeholder="Zipcode" value="<?php echo $zipcode; ?>">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
