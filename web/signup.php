@@ -39,13 +39,8 @@
             <div class="form-group <?php echo (!empty($lname_err)) ? 'has-error' : ''; ?>">
                 <label>First Name</label>
             <input type="text" id="txtLname" name="txtLname" class="form-control" placeholder="Last Name" value="<?php echo $lname; ?>">
-               
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Address</p>
+             <p>Address</p>
             <div class="form-group <?php echo (!empty($street_name_err)) ? 'has-error' : ''; ?>">
                 <label>Street Name</label>
                 <input type="text" id="txtStreet" name="txtStreet" class="form-control" placeholder="Street Name" value="<?php echo $Street_name; ?>">
