@@ -45,6 +45,19 @@
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
+            <p>Address</p>
+            <div class="form-group <?php echo (!empty($street_name_err)) ? 'has-error' : ''; ?>">
+                <label>Street Name</label>
+                <input type="text" id="txtStreet" name="txtStreet" class="form-control" placeholder="Street Name" value="<?php echo $Street_name; ?>">
+            <div class="form-group <?php echo (!empty($city_name_err)) ? 'has-error' : ''; ?>">
+                <label>City</label>
+            <input type="text" id="txtCity" name="txtCity" class="form-control" placeholder="City Name" value="<?php echo $city_name; ?>">
+               
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
             
             <p>Already have an account? <a href="signIn.php">Login here</a>.</p>
         </form>
