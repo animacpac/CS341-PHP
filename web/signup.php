@@ -32,6 +32,12 @@
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password; ?></span>
             </div>
+            <p>User information</p>
+            <div class="form-group <?php echo (!empty($fname_err)) ? 'has-error' : ''; ?>">
+                <label>First Name</label>
+                <input type="text" id="txtFname" name="txtFname" class="form-control" placeholder="First Name" value="<?php echo $fname; ?>">
+               
+            </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">
