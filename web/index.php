@@ -8,7 +8,7 @@ $username = $_SESSION['username'];
 <html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>Valter Barreto Ab</title>
+    <title>PIZZA FHE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="home.css">
     
