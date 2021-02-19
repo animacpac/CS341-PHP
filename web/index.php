@@ -1,4 +1,3 @@
-
 <?php include("header.php"); 
 session_start();
 $username = $_SESSION['username'];
@@ -6,56 +5,47 @@ $username = $_SESSION['username'];
 
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Valter Barreto Ab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home.css">
+    
+</head>
+<body>
 
+    
+
+    <div class="row">
+        <div class="col-3 col-s-3 menu">
+            <ul>
+                <li><a href="order.php">ORDER HERE</a></li>
+                <li><a href="signIn.php">PROFILE</a></li>
+                <li><a href="signup.php">SIGNUP HERE</a></li>
+            </ul>
+        </div>
+
+        <div class="col-6 col-s-9">
+            <h1 id="color1">VALTER BARRETO</h1>
+            <p id="color2">“The family is the most important organization in time or in eternity. Our purpose in life is to create for ourselves eternal family units.”</p>
+            <div class="container1">
+                <img src="fam.png" alt="Powerful image" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        Hello I love my family and as you see I am displaying them for you.
+                        <br /> I love going out for hikes and snow shoewing. <br />“In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they’re still beautiful.”
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 col-s-1">
+            <div class="as
 <body>
 
 Wecolme <?= $username ?><br /><br />
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-3">
-                <form action="manage_cart.php" method="POST">
-                    <div class="card">
-                        <img src="purse.jpg" class="card-img-top">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Purse</h5>
-                            <p class="card-text">Price: $20.00</p>
-                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
-                            <input type="hidden" name="Item_Name" value="Purse 1">
-                            <input type="hidden" name="Price" value="20.00">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3">
-                <form action="manage_cart.php" method="POST">
-                    <div class="card">
-                        <img src="purse2.jpg" class="card-img-top">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Purse 2</h5>
-                            <p class="card-text">Price: $15.00</p>
-                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
-                            <input type="hidden" name="Item_Name" value="Purse2">
-                            <input type="hidden" name="Price" value="15.00">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3">
-                <form action="manage_cart.php" method="POST">
-                    <div class="card">
-                        <img src="purse3.jpg" class="card-img-top">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Purse 3</h5>
-                            <p class="card-text">Price: $30.00</p>
-                            <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
-                            <input type="hidden" name="Item_Name" value="Purse3">
-                            <input type="hidden" name="Price" value="30.00">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-        </div>
-    </div>
+    
 </body>
 </html>
