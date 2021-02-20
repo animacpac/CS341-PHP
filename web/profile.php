@@ -1,5 +1,7 @@
-<?php include 'auth.php' ?> 
-<?php include 'check_profile.php' ?>
+<?php include("header.php"); 
+session_start();
+$username = $_SESSION['username'];
+?>
 
 <?php 
     session_start();
