@@ -1,4 +1,4 @@
-<?php include "sr1.php" ; ?>
+<?php include "dbConnect.php" ; ?>
 <?php include("header.php"); 
 session_start();
 ?>
@@ -8,17 +8,18 @@ session_start();
 
         echo '<h1>These are your results in the database:</h1> <br><br>';
         
-        $last_name = $_POST['last_name_filter'];
+        $username = $_POST['username'];
 
 
         //Prepared statement to get results filtered by book 
-        $stmt = $db->prepare('SELECT * FROM note WHERE last_name=:last_name');
-        $stmt->execute(array(':last_name' => $last_name));
+        $stmt = $db->prepare('SELECT * FROM users WHERE usename='$username'');
+        $stmt->execute(array(':username' => $username));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row )
         {
-         echo '<a href=user_details.php?id=' . $row['id'] . '>' . $row['first_name'] . ' ' . $row['last_name'] . ':' . $row['verse'] . '</a>';
+         echo '<a href=user_details.php?id=' . $row['id'] . '>' . $row['fname'] . ' ' . $row['lame'] . ':' . $row['street_name'] . '</a>';
          echo '<br><br>';
         }
  ?>
+
