@@ -30,6 +30,11 @@ $username = $_SESSION['username'];
                         <a class="nav-link active" aria-current="page" href="signIn.php">Sign In</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="user_profile.php">Profile</a>
+                    </li>
+                </ul>
                 <div>                   
                     <?php
                      $count=0;
