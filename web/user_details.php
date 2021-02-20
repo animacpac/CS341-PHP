@@ -1,4 +1,4 @@
-<?php include "sr1.php" ; ?>
+<?php include "dbConnect.php" ; ?>
 <?php include("header.php"); 
 session_start();
 ?>
@@ -11,7 +11,7 @@ session_start();
         $id = $_GET['id'];
 
       
-        $stmt = $db->prepare('SELECT * FROM note WHERE id=:id');
+        $stmt = $db->prepare('SELECT * FROM users WHERE id=:id');
         $stmt->execute(array(':id' => $id));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -31,8 +31,8 @@ session_start();
         <th>Address</th>
     </tr>
     <tr>
-        <td><?php echo $row['first_name']; ?></td>
-        <td><?php echo $row['last_name']; ?></td>
+        <td><?php echo $row['fname']; ?></td>
+        <td><?php echo $row['lname']; ?></td>
         <td><?php echo $row['userid']; ?></td>
         <td><?php echo $row['content']; ?></td>
     </tr>

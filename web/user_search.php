@@ -1,4 +1,4 @@
-<?php include "sr1.php" ; ?>
+<?php include "dbConnect.php" ; ?>
 <?php include("header.php"); 
 session_start();
 ?>
