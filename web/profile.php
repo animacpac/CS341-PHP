@@ -1,3 +1,8 @@
+
+<?php include("header.php"); 
+session_start();
+$username = $_SESSION['username'];
+?>
 <?php
 /**********************************************************
 * File: showTopics.php
@@ -14,7 +19,7 @@ $db = get_db();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Scripture and Topic List</title>
+	<title>Profile</title>
 </head>
 
 <body>
