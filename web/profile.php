@@ -43,7 +43,7 @@ try
 
 
 	// prepare the statement
-	$statement = $db->prepare('SELECT id, fname, lname, street_name, city_name FROM users WHERE username='$username'');
+	$statement = $db->prepare('SELECT id, fname, lname, street_name, city_name FROM users');
 	$statement->execute();
 
 	// Go through each result
