@@ -43,12 +43,10 @@ try
 
 
 	// prepare the statement
-	$statement = $db->prepare('SELECT id, fname, lname, street_name, city_name FROM users');
+	$statement = $db->prepare('SELECT * FROM users WHERE username = '$username'');
 	$statement->execute();
 
-	// Go through each result
-	if ($username == 'username')
-	{
+
         while($row = $statement->fetch(PDO::FETCH_ASSOC)){
         
 		echo '<p>';
@@ -57,10 +55,7 @@ try
 		echo '<br />';
 		echo 'Topics: ';
 
-		// get the topics now for this scripture
-        }
-		
-	}
+
 
 
 }
