@@ -12,7 +12,7 @@ if (!$db) {
 }
 
 $sql = "SELECT id, fname, lname FROM vm16";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($db, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
