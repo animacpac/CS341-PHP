@@ -47,7 +47,7 @@ try
 	$statement->execute();
 
 	// Go through each result
-	if ($username = 'username')
+	if ($username == 'username')
 	{
         $row = $statement->fetch(PDO::FETCH_ASSOC)
 		echo '<p>';
