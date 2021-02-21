@@ -47,8 +47,9 @@ try
 	$statement->execute();
 
 	// Go through each result
-	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	if ($username = 'username')
 	{
+        $row = $statement->fetch(PDO::FETCH_ASSOC)
 		echo '<p>';
 		echo '<strong>' . $row['fname'] . ' ' . $row['lname'] . ':';
 		echo $row['street_name'] . '</strong>' . ' - ' . $row['city_name'];
