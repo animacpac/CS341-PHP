@@ -25,7 +25,7 @@ $db = get_db();
 <body>
 <div>
 
-<h1>Scripture and Topic List</h1>
+<h1>Profile</h1>
 
 <?php
 
