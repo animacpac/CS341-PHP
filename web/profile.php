@@ -1,21 +1,33 @@
 <?php include("header.php"); 
 session_start();
 $username = $_SESSION['username'];
+require("dbConnect.php");
+$db = get_db();
 
 ?>
 
-<?php 
-    session_start();
-    $current_user = $_SESSION['username'];
-    $username = mysqli_real_escape_string($database,$_REQUEST['username']);
-    $profile_username=$rws['username'];
-?>
 <!DOCTYPE html>
-<html lang="en">
-<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <body>
-<h1><?php echo $row = ['fname']; ?></h1>
-	
+
+<?php
+$username = $_SESSION['username'];
+
+
+$sql = "SELECT id, firstname, lastname FROM username";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> id: ". $row["id"]. " - Name: ". $row["fname"]. " " . $row["lname"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
 
 
 </body>
