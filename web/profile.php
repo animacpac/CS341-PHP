@@ -43,7 +43,7 @@ try
 
 
 	// prepare the statement
-	$statement = $db->prepare('SELECT * FROM users WHERE username = '$username'');
+	$statement = $db->prepare('SELECT CURRENT_USER * FROM users');
 	$statement->execute();
 
 
