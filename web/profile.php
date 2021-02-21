@@ -11,8 +11,6 @@ $db = get_db();
 <body>
 
 <?php
-$username = $_SESSION['username'];
-
 
 $sql = "SELECT id, firstname, lastname FROM username";
 $result = $conn->query($sql);
@@ -26,7 +24,7 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 
-$conn->close();
+
 ?>
 
 
