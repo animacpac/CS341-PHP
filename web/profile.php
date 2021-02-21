@@ -43,19 +43,21 @@ try
 
 
 	// prepare the statement
-	$statement = $db->prepare('SELECT * FROM users');
+	$statement = $db->prepare('SELECT id, fname, lname, street_name, city_name FROM users WHERE username='$username'');
 	$statement->execute();
 
-
-        while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-        
+	// Go through each result
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
 		echo '<p>';
 		echo '<strong>' . $row['fname'] . ' ' . $row['lname'] . ':';
 		echo $row['street_name'] . '</strong>' . ' - ' . $row['city_name'];
 		echo '<br />';
 		echo 'Topics: ';
 
-
+		// get the topics now for this scripture
+		
+	}
 
 
 }
