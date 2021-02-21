@@ -1,32 +1,29 @@
-<?php include("header.php"); 
-session_start();
-$username = $_SESSION['username'];
-require("dbConnect.php");
-$db = get_db();
-
-?>
 
 <!DOCTYPE html>
 <html>
 <body>
 
 <?php
+require("dbConnect.php");
 
-$sql = "SELECT id, firstname, lastname FROM username";
-$result = $conn->query($sql);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
-if ($result->num_rows > 0) {
+$sql = "SELECT id, firstname, lastname FROM vm16";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<br> id: ". $row["id"]. " - Name: ". $row["fname"]. " " . $row["lname"] . "<br>";
+    while($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
     }
 } else {
     echo "0 results";
 }
 
-
+mysqli_close($conn);
 ?>
-
 
 </body>
 </html>
