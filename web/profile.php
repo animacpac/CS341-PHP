@@ -3,13 +3,7 @@ session_start();
 $username = $_SESSION['username'];
 ?>
   
-<?php
 
-
-require("dbConnect.php");
-$db = get_db();
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +24,7 @@ try
 
 
 	
-	$statement = $db->prepare('SELECT id, username, fname, lname, street_name FROM users');
+	$statement = $username->prepare('SELECT id, username, fname, lname, street_name FROM users');
 	$statement->execute();
 
 	// Go through each result
@@ -41,15 +35,6 @@ try
 		echo $row['lname'] . '</strong>' . ' - ' . $row['street_name'];
 		echo '<br />';
 		
-
-		$stmtTopics = $db->prepare('SELECT name FROM topic t'
-			. ' INNER JOIN scripture_topic st ON st.topicId = t.id'
-			. ' WHERE st.scriptureId = :scriptureId');
-
-		$stmtTopics->bindValue(':scriptureId', $row['id']);
-		$stmtTopics->execute();
-
-	
 		
 	}
 
