@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
  $result = mysqli_query($con,"SELECT * FROM users");
  $c_rows = mysqli_num_rows($result);
  if ($c_rows!=$username) {
-  header("location: index.php?remark_login=failed");
+  header("location: signin.php?remark_login=failed");
  }
  $sql="SELECT id FROM users WHERE username='$username' and password='$password'";
  $result=mysqli_query($con,$sql);

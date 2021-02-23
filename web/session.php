@@ -8,6 +8,6 @@ $loggedin_session=$row['username'];
 $loggedin_id=$row['id'];
 if(!isset($loggedin_session) || $loggedin_session==NULL) {
  echo "Go back";
- header("Location: index.php");
+ header("Location: signin.php");
 }
 ?>
