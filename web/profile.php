@@ -19,9 +19,15 @@ include "dbConnect.php";
 $query = "SELECT fname, lname, street_name, city_name, zipcode FROM users WHERE id = '$username' ";
 $result = mysql_query($query);
 $row=mysql_fetch_array($result);
-while($row){
-    $uid=$row['fname'];
+if(mysql_num_rows($result)>0)
+{
+    $row = mysql_fetch_array($result);
+    $uid = $row["fname"];
     echo $uid;
+}
+else
+{
+    echo "No record found";
 }
 ?>
 
