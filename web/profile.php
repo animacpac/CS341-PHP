@@ -14,10 +14,24 @@ $qry=mysqli_query($mysqli,"select * from users where username='$u_id'");
 </head>
 
 <body>
-<div>
+<?php
+ 
 
-<h1>Show Profile</h1>
-Welcome: <?php echo $row["fname"]; ?>
+$sql = "SELECT id, fname, lname FROM users";
+$result = $username->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br> id: ". $row["id"]. " - Name: ". $row["fname"]. " " . $row["lname"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
+
 
 </body>
 </html>
