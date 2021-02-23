@@ -16,7 +16,7 @@ $qry=mysqli_query($mysqli,"SELECT * FROM users WHERE username='".$_SESSION['user
 <div>
 
 <h1>Show Profile</h1>
-Welcome: 
+Welcome: <?php echo 'fname' ?>
 
 </body>
 </html>
