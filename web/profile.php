@@ -1,7 +1,7 @@
 <?php include("header.php"); 
 session_start();
-$username=$_SESSION['username'];
-$fname=$_SESSION['fname'];
+$username=$_SESSION['username','fname'];
+
 ?>
   
 
