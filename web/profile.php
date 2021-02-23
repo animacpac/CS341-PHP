@@ -2,7 +2,7 @@
 session_start();
 
 $u_id=$_SESSION['username'];
-$qry=mysqli_query($mysqli,"select * from users where username='$u_id'");
+
 
 ?>
   
@@ -15,10 +15,12 @@ $qry=mysqli_query($mysqli,"select * from users where username='$u_id'");
 
 <body>
 <?php
- 
+include("dbConnect");
+
+$db = get_db();
 
 $sql = "SELECT id, fname, lname FROM users";
-$result = $username->query($sql);
+$result = $db->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
