@@ -1,7 +1,7 @@
 <?php include("header.php"); 
 session_start();
 
-$u_id=$_SESSION['username'];
+$username=$_SESSION['username'];
 
 
 ?>
@@ -15,23 +15,23 @@ $u_id=$_SESSION['username'];
 
 <body>
 <?php
-include("dbConnect");
+require("dbConnect");
 
 $db = get_db();
 
-$sql = "SELECT id, fname, lname FROM users";
-$result = $db->query($sql);
+try
+{
+	$query = 'SELECT fname, lname, street_name, city_name FROM users WHERE username = '$username'';
+	$statement = $db->prepare($query);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<br> id: ". $row["id"]. " - Name: ". $row["fname"]. " " . $row["lname"] . "<br>";
-    }
-} else {
-    echo "0 results";
+	$fname = 'fname';
+
+
+
+	echo "$fname";
 }
 
-$conn->close();
+
 ?>
 
 
