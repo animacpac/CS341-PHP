@@ -1,6 +1,7 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
+$qry=mysqli_query($mysqli,"select * from users where id='$username'");
 
 ?>
 <!DOCTYPE html>
