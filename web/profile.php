@@ -1,5 +1,4 @@
 <?php include("header.php"); 
-include("dbConnect.php");
 session_start();
 $qry=mysqli_query($mysqli,"SELECT * FROM users WHERE username='".$_SESSION['username'];."'");
 ?>
