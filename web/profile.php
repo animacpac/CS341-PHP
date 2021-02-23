@@ -12,11 +12,20 @@ $username = $_SESSION['username'];
 You are now logged in. you can logout by clicking on signout link given below.
 <div id="contentbox">
 <?php
-$sql="SELECT * FROM users where id=$username";
-$result=mysqli_query($con,$sql);
+
+
+
+
+	$statement = $db->prepare('SELECT id, fname, lname, street_name, city_name, zipcode FROM users');
+	$statement->execute();
+
+
+
+
+
 ?>
 <?php
-while($rows=mysqli_fetch_array($result)){
+while($username=$username($PDO::FETCH_ASSOC)){
 ?>
 <div id="signup">
 <div id="signup-st">
