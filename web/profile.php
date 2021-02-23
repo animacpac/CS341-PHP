@@ -1,6 +1,7 @@
 <?php include("header.php"); 
 session_start();
 $username=$_SESSION['username'];
+$fname='fname';
 ?>
   
 
@@ -21,9 +22,7 @@ $row=mysql_fetch_array($result);
 while($row)
  {
 echo $username;
-$uid=$row['fname'];
-
-echo $uid;
+echo $fname;
 
 }
 ?>
