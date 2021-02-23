@@ -1,6 +1,7 @@
 <?php include("header.php"); 
 session_start();
 $username=$_SESSION['username'];
+$fname=$_SESSION['fname'];
 ?>
   
 
@@ -20,9 +21,7 @@ $result = mysql_query($query);
 $row=mysql_fetch_array($result);
 if(mysql_num_rows($result)>0)
 {
-    $row = mysql_fetch_array($result);
-    $uid = $row["fname"];
-    echo $uid;
+    echo = $fname
 }
 else
 {
