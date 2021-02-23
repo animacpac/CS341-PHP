@@ -16,7 +16,7 @@ $username = $_SESSION['username'];
 
 <h1>Show Profile</h1>
 <?php
-	$show = mysqli_query($mysqli,"SELECT * FROM `users` WHERE `id`='".$_SESSION['username'];."'");
+	$show = mysqli_query($mysqli,"SELECT * FROM 'users' WHERE 'id'='".$_SESSION['username'];."'");
 	while($row = mysqli_fetch_row($show)){
 ?>
 	<tr class="even pointer">
