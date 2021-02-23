@@ -16,7 +16,7 @@ $fname='fname';
 <?php
 include "dbConnect.php";
 
-$query = "SELECT fname, lname, street_name, city_name, zipcode FROM users WHERE userid = '$username' ";
+$query = "SELECT fname, lname, street_name, city_name, zipcode FROM users WHERE id = '$username' ";
 $result = mysql_query($query);
 $row=mysql_fetch_array($result);
 while($row=mysql_fetch_array($result)){
