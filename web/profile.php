@@ -17,7 +17,7 @@ $qry=mysqli_query($mysqli,"select * from users where username='$u_id'");
 <div>
 
 <h1>Show Profile</h1>
-Welcome: <?php echo 'fname'; ?>
+Welcome: <?php echo $row["fname"]; ?>
 
 </body>
 </html>
