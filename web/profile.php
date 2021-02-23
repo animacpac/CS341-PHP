@@ -1,5 +1,7 @@
 <?php include("header.php"); 
 session_start();
+$username=$_SESSION['username'];
+
 ?>
   
 
@@ -11,21 +13,16 @@ session_start();
 </head>
 
 <body>
-
-
 <?php
-	$show = mysqli_query($mysqli,"SELECT * FROM users WHERE username='".$_SESSION['username'];."'");
-	while($row = mysqli_fetch_row($show)){
-?>
-	<tr class="even pointer">
-		<td><?= $row[1] ?></td>
-		<td><?= $row[2] ?></td>
-		<td><?= $row[3] ?></td>
-		<td><?= $row[4] ?></td>
-		<td><?= $row[5] ?></td>
-	</tr>
-<?php 
-	}
+include "dbConnect.php";
+
+$query = "SELECT fname, lname, street_name, city_name, zipcode FROM users WHERE username = '$username' ";
+$result = mysql_query($query);
+$row=mysql_fetch_array($result);
+while($row)){
+    $uid=$row['fname'];
+    echo $uid;
+}
 ?>
 
 
