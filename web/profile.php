@@ -1,5 +1,5 @@
 <?php
- include('signIn.php');
+ include('session.php');
 ?>
 <!DOCTYPE html>
 <html>
