@@ -1,6 +1,9 @@
 <?php include("header.php"); 
 session_start();
-$qry=mysqli_query($mysqli,"SELECT * FROM users WHERE username='".$_SESSION['username'];."'");
+
+$u_id=$_SESSION['username'];
+$qry=mysqli_query($mysqli,"select * from users where username='$u_id'");
+
 ?>
   
 
