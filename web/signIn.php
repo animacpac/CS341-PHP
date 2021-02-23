@@ -1,102 +1,104 @@
-<?php include "logincheck.php"; ?>
+
+  
+<?php
+
+session_start();
+
+$badLogin = false;
+
+
+if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
+{
+	
+	$username = $_POST['txtUser'];
+	$password = $_POST['txtPassword'];
+
+	require("dbConnect.php");
+	$db = get_db();
+
+	$query = 'SELECT password FROM users WHERE username=:username';
+
+	$statement = $db->prepare($query);
+	$statement->bindValue(':username', $username);
+
+	$result = $statement->execute();
+
+	if ($result)
+	{
+		$row = $statement->fetch();
+		$hashedPasswordFromDB = $row['password'];
+
+
+		
+		if (password_verify($password, $hashedPasswordFromDB))
+		{
+			$_SESSION['username'] = $username;
+			header("Location: index.php");
+			
+			die(); 
+		}
+		else
+		{
+			$badLogin = true;
+		}
+
+	}
+	else
+	{
+		$badLogin = true;
+	}
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
- <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
- <link rel="stylesheet" type="text/css" href="style.css" />
- <title>7topics - Login Demo</title>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+    <style type="text/css">
+        body{ font: 14px sans-serif; }
+        .wrapper{ width: 350px; padding: 20px; }
+    </style>
 </head>
-<body>
-<header>
- <nav>
-  <ul>
-   <li><a href="https://7topics.com">7topics</a></li>
-   <li><a href="https://7topics.com/creating-user-profile-page-using-php-and-mysql.html">Tutorial</a></li>
-  </ul>
- </nav>
-</header>
-<div id="center">
-<div id="center-set"> -written by Rahul Ranjan 
-<div id="signup">
-<div id="signup-st">
-<div align="center">
+<div>
+
 <?php
-$remarks = isset($_GET['remarks']) ? $_GET['remarks'] : '';
-if ($remarks==null and $remarks=="") {
-echo ' <div id="reg-head" class="headrg">Register Here</div> ';
-}
-if ($remarks=='success') {
-echo ' <div id="reg-head" class="headrg">Registration Success</div> ';
-}
-if ($remarks=='failed') {
-echo ' <div id="reg-head-fail" class="headrg">Registration Failed!, Username exists</div> ';
-}
-if ($remarks=='error') {
-echo ' <div id="reg-head-fail" class="headrg">Registration Failed! <br> Error: '.$_GET['value'].' </div> ';
+if ($badLogin)
+{
+	echo "Incorrect username or password!<br /><br />\n";
 }
 ?>
+
+
+
+
+<div class="wrapper">
+        <h2>Please Login</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="signIn.php" method="POST">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="txtUser" name="txtUser" class="form-control" placeholder="Username">
+                
+            </div>    
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" class="form-control" >
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Sign In"/>
+                
+            </div>
+            <p>Already have an account? <a href="signup.php">Login here</a>.</p>
+        </form>
+    </div>    
+
 </div>
-<form name="reg" action="execute.php" onsubmit="return validateForm()" method="post" id="reg">
-<table border="0" align="center" cellpadding="2" cellspacing="0">
-<tr>
-<td class="t-1">
-<div align="left" id="tb-name">First&nbsp;Name:</div>
-</td>
-<td width="171">
-<input type="text" name="fname" id="tb-box"/>
-</td>
-</tr>
-<tr>
-<td class="t-1"><div align="left" id="tb-name">Last&nbsp;Name:</div></td>
-<td><input type="text" name="lname" id="tb-box"/></td>
-</tr>
-<tr>
-<td class="t-1"><div align="left" id="tb-name">Email:</div></td>
-<td><input type="text" id="tb-box" name="street_name" /></td>
-</tr>
-<tr>
-<td class="t-1"><div align="left" id="tb-name">Username:</div></td>
-<td><input type="text" id="tb-box" name="username" /></td>
-</tr>
-<tr>
-<td class="t-1"><div align="left" id="tb-name">Password:</div></td>
-<td><input id="tb-box" type="password" name="password" /></td>
-</tr>
-</table>
-<div id="st"><input name="submit" type="submit" value="Submit" id="st-btn"/></div>
-</form>
-<div id="reg-bottom" class="btmrg">Copyright &copy; 2015 7topics.com</div>
-</div>
-</div>
-<div id="login">
-<div id="login-st">
-<form action="" method="POST" id="signin" id="reg">
-<?php
-$remarks = isset($_GET['remark_login']) ? $_GET['remark_login'] : '';
-if ($remarks==null and $remarks=="") {
-echo ' <div id="reg-head" class="headrg">Login Here</div> ';
-}
-if ($remarks=='failed') {
-echo ' <div id="reg-head-fail" class="headrg">Login Failed!, Invalid Credentials</div> ';
-}
-?>
-<table border="0" align="center" cellpadding="2" cellspacing="0">
-<tr id="lg-1">
-<td class="tl-1"><div align="left" id="tb-name">Username:</div></td>
-<td><input type="text" id="tb-box" name="username" /></td>
-</tr>
-<tr id="lg-1">
-<td class="tl-1"><div align="left" id="tb-name">Password:</div></td>
-<td><input id="tb-box" type="password" name="password" /></td>
-</tr>
-</table>
-<div id="st"><input name="submit" type="submit" value="Login" id="st-btn"/></div>
-</form>
-<div id="reg-bottom" class="btmrg">Copyright &copy; 2015 7topics.com</div>
-</div>
-</div>
-</div>
-</div>
-<div id="footer"><p> Copyright &copy; 2014-2020 7topics.com </p></div>
+
 </body>
 </html>
+

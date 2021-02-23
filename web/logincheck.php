@@ -30,8 +30,8 @@ if (isset($_POST['txtUser']) && isset($_POST['txtPassword']))
 		
 		if (password_verify($password, $hashedPasswordFromDB))
 		{
-			$_SESSION['login_user'] = $username;
-			header("Location: index.php");
+			$_SESSION['username'] = $username;
+			header("Location: profile.php");
 			
 			die(); 
 		}
