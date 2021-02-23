@@ -1,8 +1,9 @@
 <?php include("header.php"); 
 session_start();
-
 $username=$_SESSION['username'];
+require("dbConnect");
 
+$db = get_db();
 
 ?>
   
@@ -15,21 +16,32 @@ $username=$_SESSION['username'];
 
 <body>
 <?php
-require("dbConnect");
 
-$db = get_db();
 
 try
 {
-	$query = 'SELECT fname, lname, street_name, city_name FROM users WHERE username = '$username'';
-	$statement = $db->prepare($query);
+	
+	$statement = $db->prepare('SELECT id, fname, lname, street_name, city_name FROM users');
+	$statement->execute();
 
-	$fname = 'fname';
+	// Go through each result
+	while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+	{
+		echo '<p>';
+		echo '<strong>' . $row['fname'] . ' ' . $row['lname'] . ':';
+		echo $row['street_name'] . '</strong>' . ' - ' . $row['city_name'];
+		
+		echo '</p>';
+	}
 
 
-
-	echo "$fname";
 }
+catch (PDOException $ex)
+{
+	echo "Error with DB. Details: $ex";
+	die();
+}
+
 
 
 ?>
