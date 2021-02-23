@@ -1,7 +1,8 @@
 <?php include("header.php"); 
+include("dbConnect.php")
 session_start();
 $username = $_SESSION['username'];
-
+$qry=mysqli_query($mysqli,"SELECT * FROM users WHERE username='".$_SESSION['username'];."'");
 ?>
   
 
@@ -15,22 +16,7 @@ $username = $_SESSION['username'];
 <div>
 
 <h1>Show Profile</h1>
-<?php
-	$show = mysqli_query($mysqli,"SELECT * FROM 'users' WHERE 'id'='".$_SESSION['username'];."'");
-	while($row = mysqli_fetch_row($show)){
-?>
-	<tr class="even pointer">
-		<td><?= $row['username'] ?></td>
-		<td><?= $row['fname'] ?></td>
-		<td><?= $row['lname'] ?></td>
-		<td><?= $row['street_name'] ?></td>
-		<td><?= $row['city_name'] ?></td>
-	</tr>
-<?php 
-	}
-
-
-</div>
+Welcome: 
 
 </body>
 </html>
