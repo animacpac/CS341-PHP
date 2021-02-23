@@ -18,7 +18,7 @@ $result = mysql_query($query);
 $row=mysql_fetch_array($result);
 while($row)
  {
-  $uid=$row['fname'];
+  $uid=$row[0];
 
   echo $uid;
 
