@@ -14,15 +14,16 @@ $username=$_SESSION['username'];
 <body>
 <?php
 include "dbConnect.php";
-echo $username;
-$query = "SELECT fname, lname, street_name, city_name, zipcode FROM master WHERE id = '$username' ";
+
+$query = "SELECT fname, lname, street_name, city_name, zipcode FROM master WHERE username = '$username' ";
 $result = mysql_query($query);
 $row=mysql_fetch_array($result);
 while($row)
  {
-  $uid=$row[0];
+echo $username;
+$uid=$row['fname'];
 
-  echo $uid;
+echo $uid;
 
 }
 ?>
