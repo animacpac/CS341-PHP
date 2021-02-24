@@ -9,13 +9,13 @@
 
 
         //Prepared statement to get results filtered by book 
-        $stmt = $db->prepare('SELECT id, fname, lname, street_name FROM users WHERE username=:username');
+        $stmt = $db->prepare('SELECT id, username, fname, lname, street_name FROM users WHERE username=:username');
         $stmt->execute(array(':username' => $username));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($rows as $row )
         {
-         echo '<a href=show_details.php?id=' . $row['id'] . '>' . $row['fname'] . ' ' . $row['lname'] . ':' . $row['street_name'] . '</a>';
+         echo '<h1>Username:</h1>' . $row['username'] . '<p><h1>Full Name:</h1>' . $row['fname'] . ' ' . $row['lname'] . '<p><h1>Address:</h1>' . $row['street_name'] . '</br>'. $row['street_name'].'</a>';
          echo '<br><br>';
         }
  ?>
