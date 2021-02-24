@@ -1,24 +1,21 @@
-<?php require "dbConnect.php" ; ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>User Profile</title>
-    </head>
-    <body>
-        <?php
-            $stmt = $db->prepare("SELECT  id, fname, lname, street_name, city_name  FROM users");
-            $stmt->execute();
-            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $content = '';
-            foreach ($rows as $row )
-            {
-               
-                echo '<br><br>' . $row['id'] . ' ' . $row['fname'] . ':' . $row['lname'] . '</b>';
-                echo ' - "' . $row['street_name'] . '"'; 
-                echo "Topics: " . $row['city_name'] . " ";
-                              
-                
-            }
-        ?>
-    </body>
-</html>
+<?php include "dbConnect.php" ; ?>
+
+<?php
+    //Check if the page has been called adter a post method
+
+        echo '<h1>These are your results in the database:</h1> <br><br>';
+        
+        $username = $_POST['profile_filter'];
+
+
+        //Prepared statement to get results filtered by book 
+        $stmt = $db->prepare('SELECT id, fname, lname, street_name FROM users WHERE username=:username');
+        $stmt->execute(array(':username' => $username));
+        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($rows as $row )
+        {
+         echo '<a href=show_details.php?id=' . $row['id'] . '>' . $row['fname'] . ' ' . $row['lname'] . ':' . $row['street_name'] . '</a>';
+         echo '<br><br>';
+        }
+ ?>
