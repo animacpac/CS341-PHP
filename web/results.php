@@ -7,7 +7,7 @@ session_start();
 <html lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <title>Profiles</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
         body{ font: 14px sans-serif; }
@@ -15,6 +15,7 @@ session_start();
     </style>
 </head>
 <body>
+<div class='row'>
 
 <?php include "dbConnect2.php" ; ?>
 
@@ -37,5 +38,6 @@ session_start();
          echo '<br><br>';
         }
  ?>
+ </div>
 </body>
 </html>
