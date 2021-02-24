@@ -20,9 +20,7 @@ try
 
         // Go through each result
         while ($row = $statement->fetch(PDO::FETCH_ASSOC))
-        {
-            echo $row['id'];
-        }
+     
 }
 
 catch (PDOException $ex)
