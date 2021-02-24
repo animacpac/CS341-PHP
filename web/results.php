@@ -17,7 +17,7 @@ session_start();
 <body>
 <div>
 
-<?php include "dbConnect2.php" ; ?>
+<?php include "dbConnect.php" ; ?>
 
 <?php
     //Check if the page has been called adter a post method
@@ -28,7 +28,7 @@ session_start();
 
 
         //Prepared statement to get results filtered by book 
-        $stmt = $db->prepare('SELECT id, username, fname, lname, street_name FROM users WHERE username=:username');
+        $stmt = $db->prepare('SELECT id, username, fname, lname, street_name, city_name FROM users WHERE username=:username');
         $stmt->execute(array(':username' => $username));
         $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

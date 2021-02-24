@@ -1,4 +1,4 @@
-<?php include "dbConnect2.php" ; ?>
+<?php include "dbConnect.php" ; ?>
 
 <!DOCTYPE html>
 <html>
