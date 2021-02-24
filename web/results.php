@@ -15,7 +15,7 @@ session_start();
     </style>
 </head>
 <body>
-<div class='row'>
+<div>
 
 <?php include "dbConnect2.php" ; ?>
 
@@ -34,7 +34,7 @@ session_start();
 
         foreach ($rows as $row )
         {
-         echo '<h1>Username:</h1>' . $row['username'] . '<p><h1>Full Name:</h1>' . $row['fname'] . ' ' . $row['lname'] . '<p><h1>Address:</h1>' . $row['street_name'] . '</br>'. $row['city_name'].'</a>';
+         echo '<strong>Username:</strong>     ' . $row['username'] . '<p><strong>Full Name:</strong>     ' . $row['fname'] . ' ' . $row['lname'] . '<p><strong>Address:</strong>     ' . $row['street_name'] . '</br>'. $row['city_name'].'</a>';
          echo '<br><br>';
         }
  ?>
