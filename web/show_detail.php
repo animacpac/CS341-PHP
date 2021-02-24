@@ -1,4 +1,4 @@
-<?php include "dbConnect.php" ; ?>
+<?php include "dbConnect2.php" ; ?>
 
 <?php
     //Check if the page has been called adter a post method

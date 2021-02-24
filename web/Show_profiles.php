@@ -1,4 +1,4 @@
-<?php require "dbConnect.php" ; ?>
+<?php require "dbConnect2.php" ; ?>
 
 <!DOCTYPE html>
 <html>
