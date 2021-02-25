@@ -13,9 +13,9 @@ $username=$_SESSION['username'];
 </head>
 
 <body>
-<? $username?>
 <?php
 include "dbConnect.php";
+$db = get_db();
 
 $stmt = $db->prepare('SELECT id, username, fname, lname, street_name, city_name FROM users WHERE username=:username');
 $stmt->execute(array(':username' => $username));
