@@ -25,7 +25,7 @@ $stmt->execute(array(':username' => $username));
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-    echo $stmt['fname'];
+    echo $row['fname'];
 }
 ?>
 
