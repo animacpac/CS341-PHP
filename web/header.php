@@ -36,7 +36,7 @@ $qry=mysqli_query($mysqli,"select * from users where username='$username'");
                         <a class="nav-link active" aria-current="page" href="profile.php">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="manage.php">Profile</a>
+                        <a class="nav-link active" aria-current="page" href="manage.php">Manage</a>
                     </li>
                 </ul>
                 <div>                   

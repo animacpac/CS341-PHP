@@ -13,16 +13,19 @@ $username=$_SESSION['username'];
 </head>
 
 <body>
+<? $username?>
 <?php
 include "dbConnect.php";
 
-$query = "SELECT fname, lname, street_name, city_name, zipcode FROM users WHERE username = '$username' ";
-$result = mysql_query($query);
-$row=mysql_fetch_array($result);
-while($row){
-    $uid=$row['fname'];
-    echo $uid;
-}
+$stmt = $db->prepare('SELECT id, username, fname, lname, street_name, city_name FROM users WHERE username=:username');
+$stmt->execute(array(':username' => $username));
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($rows as $row )
+        {
+         echo '<strong>Username:</strong>     ' . $row['username'] . '<p><strong>Full Name:</strong>     ' . $row['fname'] . ' ' . $row['lname'] . '<p><strong>Address:</strong>     ' . $row['street_name'] . '</br>'. $row['city_name'].'</a>';
+         echo '<br><br>';
+        }
 ?>
 
 
