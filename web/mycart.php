@@ -56,6 +56,7 @@ session_start();
                         </tr>
                         ";
                         echo $total;
+                        
                         }
                         }
                         ?>
