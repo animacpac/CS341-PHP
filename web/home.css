@@ -136,16 +136,7 @@ html {
     font-family: "Lucida Sans", sans-serif;
 }
 
-.header {
-    background-image: url(header.png);
-    height: auto;
-    width: 100%;
-    color: gray;
-    padding: 15px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-shadow: 1px 5px 5px gray;
-}
+
 
 .menu ul {
     list-style-type: lower-roman;
@@ -194,6 +185,7 @@ input[type=submit]:hover {
         background-color: steelblue;
         color: white;
         text-align: left;
+        
         font-size: 12px;
         padding: 15px;
 }

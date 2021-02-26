@@ -47,7 +47,7 @@ $username = $_SESSION['username'];
       
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">All rights reserved to PIZZA FHE    Contact Us 801-123-1234-</span>
+        <span class="text">All rights reserved to PIZZA FHE    Contact Us 801-123-1234-</span>
       </div>
     </footer>
 
