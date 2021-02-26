@@ -2,9 +2,17 @@ CREATE TABLE public.purchase
 (
     id integer NOT NULL DEFAULT nextval('statement_id_seq'::regclass),
     userid integer NOT NULL,
+    fulname character varying(255) COLLATE pg_catalog."default",
+    email character varying(255) COLLATE pg_catalog."default",
     address character varying(255) COLLATE pg_catalog."default",
-    amount character varying(255) COLLATE pg_catalog."default",
+    city character varying COLLATE pg_catalog."default",
+    state character varying(255) COLLATE pg_catalog."default",
+    name_card character varying(255) COLLATE pg_catalog."default",
     credit_card character varying(255) COLLATE pg_catalog."default",
+    exp_m character varying(255) COLLATE pg_catalog."default",
+    exp_y character varying(255) COLLATE pg_catalog."default",
+    ccv character varying COLLATE pg_catalog."default",
+    zipcode character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT statement_pkey PRIMARY KEY (id),
     CONSTRAINT statement_userid_fkey FOREIGN KEY (userid)
         REFERENCES public.users (id) MATCH SIMPLE
