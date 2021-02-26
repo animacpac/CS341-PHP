@@ -37,8 +37,8 @@ $username = $_SESSION['username'];
                 <img src="peperoni.jpg" alt="Powerful image" class="image">
                 <div class="overlay">
                     <div class="text">
-                        Hello I love my family and as you see I am displaying them for you.
-                        <br /> I love going out for hikes and snow shoewing. <br />“In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they’re still beautiful.”
+                        Hello we are dedicated to serve the best food in the world.
+                        <br /> We always use fresh things to make your pizza. <br />“In nature, nothing is perfect and everything is perfect. Trees can be contorted, bent in weird ways, and they’re still beautiful.”
                     </div>
 
                 </div>
@@ -47,7 +47,7 @@ $username = $_SESSION['username'];
       
     <footer class="footer">
       <div class="container">
-        <span class="text">All rights reserved to PIZZA FHE    Contact Us 801-123-1234-</span>
+        <span class="text-muted">All rights reserved to PIZZA FHE    Contact Us 801-123-1234-</span>
       </div>
     </footer>
 
