@@ -26,8 +26,8 @@ $stmt->execute(array(':username' => $username));
 
 while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-    echo 'Welcome: '. $row['fname'];
-    echo '<h2>First Name: </h2>'. $row['fname'] .'<h2>Last Name: </h2>'. $row['lname'];
+    echo '</br><br>'.'Welcome: '. $row['fname'];
+    echo '</br><br>'.'<h3>First Name: </h3>'. $row['fname'] .'</br><br>'.'<h3>Last Name: </h3>'. $row['lname'];
     
    
 
