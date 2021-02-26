@@ -52,5 +52,11 @@ $qry=mysqli_query($mysqli,"select * from users where username='$username'");
             </div>
         </div>
     </nav>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
 </body>
 </html>

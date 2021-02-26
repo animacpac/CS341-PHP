@@ -23,7 +23,8 @@ $username = $_SESSION['username'];
         <div class="col-3 col-s-3 menu">
             <ul>
                 <li><a href="order.php">ORDER HERE</a></li>
-                <li><a href="signIn.php">PROFILE</a></li>
+                <li><a href="signIn.php">SIGN IN</a></li>
+                <li><a href="profile.php">PROFILE</a></li>
                 <li><a href="signup.php">SIGNUP HERE</a></li>
             </ul>
         </div>
