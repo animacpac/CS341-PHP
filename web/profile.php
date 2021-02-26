@@ -13,6 +13,7 @@ $username=$_SESSION['username'];
 </head>
 
 <body>
+
 <?php
 include "dbConnect.php";
 $db = get_db();
