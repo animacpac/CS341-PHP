@@ -40,7 +40,7 @@ $statement->bindValue(':email', $email);
 $statement->bindValue(':address', $address);
 $statement->bindValue(':city', $city);
 $statement->bindValue(':state', $state);
-$zipcode->bindValue(':zipcode', $zipcode);
+$statement->bindValue(':zipcode', $zipcode);
 $statement->bindValue(':name_card', $name_card);
 $statement->bindValue(':credit_card', $credit_card);
 $statement->bindValue(':exp_m', $exp_m);
