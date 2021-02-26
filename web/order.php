@@ -15,7 +15,7 @@ Wecolme <?= $username ?><br /><br />
             <div class="col-lg-3">
                 <form action="manage_cart.php" method="POST">
                     <div class="card">
-                        <img src="purse.jpg" class="card-img-top">
+                        <img src="pep.jpg" class="card-img-top">
                         <div class="card-body text-center">
                             <h5 class="card-title">Purse</h5>
                             <p class="card-text">Price: $20.00</p>
@@ -29,7 +29,7 @@ Wecolme <?= $username ?><br /><br />
             <div class="col-lg-3">
                 <form action="manage_cart.php" method="POST">
                     <div class="card">
-                        <img src="purse2.jpg" class="card-img-top">
+                        <img src="haw.png" class="card-img-top">
                         <div class="card-body text-center">
                             <h5 class="card-title">Purse 2</h5>
                             <p class="card-text">Price: $15.00</p>
@@ -43,7 +43,7 @@ Wecolme <?= $username ?><br /><br />
             <div class="col-lg-3">
                 <form action="manage_cart.php" method="POST">
                     <div class="card">
-                        <img src="purse3.jpg" class="card-img-top">
+                        <img src="veg.jpg" class="card-img-top">
                         <div class="card-body text-center">
                             <h5 class="card-title">Purse 3</h5>
                             <p class="card-text">Price: $30.00</p>
