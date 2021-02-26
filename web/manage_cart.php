@@ -53,5 +53,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             
         }
     }
+    if(isset($_POST['Submit']))
+    {
+    foreach($_SESSION['cart'] as $key => $value);
+        {
+           
+                echo"<script>
+                    alert('Item Removed');
+                    window.location.href='order.php';
+                    </script>";
+            
+            
+        }
+    }
+
 }
 ?>
