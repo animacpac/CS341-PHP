@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             {
                 echo"<script>
                     alert('Item Already Added');
-                    window.location.href='index.php';
+                    window.location.href='order.php';
                     </script>";
             }
             else
@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $_SESSION['cart'][$count]=array('Item_Name'=>$_POST['Item_Name'],'Price'=>$_POST['Price'],'Quantity'=>1);
                echo"<script>
                     alert('Item Added');
-                    window.location.href='index.php';
+                    window.location.href='order.php';
                     </script>";
             }
             
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $_SESSION['cart'][0]=array('Item_Name'=>$_POST['Item_Name'],'Price'=>$_POST['Price'],'Quantity'=>1);
               echo"<script>
                     alert('Item Added');
-                    window.location.href='index.php';
+                    window.location.href='order.php';
                     </script>";
         }
     }
