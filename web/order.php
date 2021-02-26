@@ -9,7 +9,6 @@ $username = $_SESSION['username'];
 
 <body>
 
-Wecolme <?= $username ?><br /><br />
     <div class="container mt-5">
         <div class="row">
             <div class="col-lg-3">

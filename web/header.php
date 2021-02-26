@@ -13,6 +13,7 @@ $qry=mysqli_query($mysqli,"select * from users where username='$username'");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
 <body>
+Welcome <?= $username ?>
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Pizza FHE</a>
@@ -54,7 +55,7 @@ $qry=mysqli_query($mysqli,"select * from users where username='$username'");
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Welcome <?= $username ?></span>
+        <span class="text-muted"></span>
       </div>
     </footer>
 </body>
