@@ -1,31 +1,52 @@
 <?php
-$book = filter_var($_POST['fname'], FILTER_SANITIZE_STRING);
-$chapter = filter_var($_POST['lname'], FILTER_SANITIZE_NUMBER_INT);
-$verse = filter_var($_POST['street_name'], FILTER_SANITIZE_NUMBER_INT);
-$content = filter_var($_POST['city_name'], FILTER_SANITIZE_STRING);
- 
-$stmt = $db->prepare("INSERT INTO users  VALUES (nextval('scriptures_sequence'), :fname,  :lname, :street_name, :city_name);");
-$stmt->bindValue(':fname', $fname, PDO::PARAM_STR);
-$stmt->bindValue(':lname', $lname, PDO::PARAM_INT);
-$stmt->bindValue(':street_name', $street_name, PDO::PARAM_INT);
-$stmt->bindValue(':city_name', $city_name, PDO::PARAM_STR);
-$stmt->execute();
-
-if(isset($_POST['new_topic']) && isset($_POST['new_topic_name'])){
-    $topic_name = filter_var($_POST['new_topic_name'], FILTER_SANITIZE_STRING);
-    $stmt = $db->prepare("INSERT INTO topic  VALUES (nextval('topic_sequence'), :topic_name ) ;");
-    $stmt->bindValue(':topic_name', $topic_name, PDO::PARAM_STR);
-    $stmt->execute();
-    $stmt = $db->prepare("INSERT INTO scripture_by_topic  VALUES (nextval('scripture_by_topic_sequence'), currval('topic_sequence'),  currval('scriptures_sequence'));");
-    $stmt->execute();
-}
+$fulname = $_POST['fulname'];
+$email = $_POST['email'];
+$address = $_POST['address'];
+$city = $_POST['city'];
+$state = $_POST['state'];
+$zipcode = $_POST['zipcode'];
+$name_card = $_POST['name_card'];
+$credit_card = $_POST['credit_card'];
+$exp_m = $_POST['exp_m'];
+$exp_y = $_POST['exp_y'];
+$ccv = $_POST['ccv'];
 
 
 
-foreach ($_POST['topic'] as $topic_id )
-{
-    $stmt = $db->prepare("INSERT INTO scripture_by_topic  VALUES (nextval('scripture_by_topic_sequence'), :topic_id,  currval('scriptures_sequence'));");
-    $stmt->bindValue(':topic_id', $topic_id, PDO::PARAM_INT);
-    $stmt->execute();
-}
+
+
+$fulname = htmlspecialchars($fulname);
+$email = htmlspecialchars($email);
+$address = htmlspecialchars($address);
+$city = htmlspecialchars($city);
+$state = htmlspecialchars($state);
+$zipcode = htmlspecialchars($zipcode);
+$name_card = htmlspecialchars($name_card);
+$credit_card = htmlspecialchars($credit_card);
+$exp_m = htmlspecialchars($exp_m);
+$exp_y = htmlspecialchars($exp_y);
+$ccv = htmlspecialchars($ccv);
+
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
+require("dbConnect.php");
+$db = get_db();
+
+$query = 'INSERT INTO purchase(fulname, email, address, city, state, zipcode, name_card, credit_card, exp_m, exp_y, ccv) VALUES(:fulname, :email, :address, :city, :state, :zipcode, :name_card, :credit_card, :exp_m, :exp_y, :ccv)';
+$statement = $db->prepare($query);
+$statement->bindValue(':fulname', $fulname);
+$statement->bindValue(':email', $email);
+$statement->bindValue(':address', $address);
+$statement->bindValue(':city', $city);
+$statement->bindValue(':state', $state);
+$zipcode->bindValue(':state', $zipcode);
+$statement->bindValue(':name_card', $name_card);
+$statement->bindValue(':credit_card', $credit_card);
+$statement->bindValue(':exp_m', $exp_m);
+$statement->bindValue(':exp_y', $exp_y);
+$statement->bindValue(':ccv', $ccv);
+
+
+header("Location: index.php");
 ?>
