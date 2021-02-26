@@ -56,7 +56,7 @@ session_start();
                         </tr>
                         ";
                         echo $total;
-                        
+
                         }
                         }
                         ?>
@@ -129,7 +129,10 @@ session_start();
       </form>
     </div>
   </div>
-                        <button name='Submit' class="btn btn-primary btn-block">Submit Purchase</button>
+                        <button name='Submit' class="btn btn-primary btn-block">Submit Purchase<?php echo"<script>
+                    alert('Your Purchase Have been made.');
+                    window.location.href='order.php';
+                    </script>";?>"</button>
                     </form>
                 </div>
             </div>
