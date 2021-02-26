@@ -19,7 +19,7 @@ $username = $_SESSION['username'];
                             <h5 class="card-title">Peperoni</h5>
                             <p class="card-text">Price: $20.00</p>
                             <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
-                            <input type="hidden" name="Item_Name" value="Purse 1">
+                            <input type="hidden" name="Item_Name" value="Peperoni">
                             <input type="hidden" name="Price" value="20.00">
                         </div>
                     </div>
@@ -33,7 +33,7 @@ $username = $_SESSION['username'];
                             <h5 class="card-title">Hawaiian</h5>
                             <p class="card-text">Price: $15.00</p>
                             <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
-                            <input type="hidden" name="Item_Name" value="Purse2">
+                            <input type="hidden" name="Item_Name" value="Hawaiian">
                             <input type="hidden" name="Price" value="15.00">
                         </div>
                     </div>
@@ -47,7 +47,7 @@ $username = $_SESSION['username'];
                             <h5 class="card-title">Veggie</h5>
                             <p class="card-text">Price: $30.00</p>
                             <button type="submit" name="Add_To_Cart" class="btn btn-info">Add To Cart</button>
-                            <input type="hidden" name="Item_Name" value="Purse3">
+                            <input type="hidden" name="Item_Name" value="Veggie">
                             <input type="hidden" name="Price" value="30.00">
                         </div>
                     </div>
