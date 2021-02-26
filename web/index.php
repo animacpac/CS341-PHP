@@ -44,10 +44,9 @@ $username = $_SESSION['username'];
                 </div>
             </div>
         </div>
+      
 
-        
 
-Wecolme <?= $username ?><br /><br />
     
 </body>
 </html>
